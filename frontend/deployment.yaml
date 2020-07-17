@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: python-playground-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-playground-frontend
+  template:
+    metadata:
+      labels:
+        app: python-playground-frontend
+    spec:
+      containers:
+      - name: python-playground-frontend
+        image: gcr.io/python-playground-283601/python-playground-frontend:latest
+        ports:
+        - containerPort: 8080
+        env:
+          - name: PORT
+            value: "8080"

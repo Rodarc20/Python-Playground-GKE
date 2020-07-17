@@ -1,0 +1,12 @@
+# create an external HTTP load balancer.
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-playground-backend 
+spec:
+  type: LoadBalancer
+  selector:
+    app: python-playground-backend
+  ports:
+  - port: 80
+    targetPort: 8090
